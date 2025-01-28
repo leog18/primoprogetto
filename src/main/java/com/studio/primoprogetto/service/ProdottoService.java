@@ -1,5 +1,7 @@
 package com.studio.primoprogetto.service;
 
+import com.studio.primoprogetto.model.dto.ProdottoDTO;
+import com.studio.primoprogetto.model.persistence.ProdottoPO;
 import com.studio.primoprogetto.model.request.*;
 import com.studio.primoprogetto.repository.ProdottoRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -13,28 +15,35 @@ public class ProdottoService {
     @Autowired
     private ProdottoRepository prodottoRepository;
 
-    public void addNewProduct(NewProductRequest newProductRequest) {
-        log.info("Service - addNewProduct start with -> {}", newProductRequest);
-        prodottoRepository.addNewProduct();
+    public void addNewProduct(ProdottoDTO prodottoDTO) {
+        log.debug("-- addNewProduct start with -> {}", prodottoDTO);
+
+        prodottoRepository.addNewProduct(new ProdottoPO());
+
+        log.debug("-- addNewProduct END");
     }
 
-    public void updateProduct(UpdateProductRequest updateProductRequest) {
-        log.info("Service - updateProduct start with -> {}", updateProductRequest);
-        prodottoRepository.updateProduct ();
+    public void updateProduct(ProdottoDTO prodottoDTO) {
+        log.debug("-- updateProduct start with -> {}", prodottoDTO);
+
+        prodottoRepository.updateProduct(new ProdottoPO());
+
+        log.debug("-- updateProduct END");
     }
 
-    public void getProduct(GetProductRequest GetProductRequest) {
-        log.info("Service - getProduct start with -> {}", GetProductRequest);
-        prodottoRepository.getProduct();
+    public void getProduct(ProdottoDTO prodottoDTO) {
+        log.debug("-- getProduct start with -> {}", prodottoDTO);
+
+        prodottoRepository.getProduct(new ProdottoPO());
+
+        log.debug("-- getProduct END");
     }
 
-    public void putProduct(PutProductRequest putProduct) {
-        log.info("Service - putProduct start with -> {}", putProduct);
-        prodottoRepository.putProduct();
-    }
+    public void deleteProduct(ProdottoDTO prodottoDTO) {
+        log.debug("-- deleteProduct start with -> {}", prodottoDTO);
 
-    public void deleteProduct(DeleteProductRequest deleteProduct) {
-        log.info("Service - deleteProduct start with -> {}", deleteProduct);
-        prodottoRepository.deleteProduct();
+        prodottoRepository.deleteProduct(new ProdottoPO());
+
+        log.debug("-- deleteProduct END");
     }
 }

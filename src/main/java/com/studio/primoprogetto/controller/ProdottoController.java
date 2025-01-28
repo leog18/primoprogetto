@@ -1,6 +1,7 @@
 package com.studio.primoprogetto.controller;
 
-import com.studio.primoprogetto.model.request.NewProductRequest;
+import com.studio.primoprogetto.model.dto.ProdottoDTO;
+import com.studio.primoprogetto.model.request.*;
 import com.studio.primoprogetto.service.ProdottoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,32 +17,44 @@ public class ProdottoController {
     private ProdottoService prodottoService;
 
     @PostMapping("/product")
-    public ResponseEntity<Object> addNewProduct(@RequestBody NewProductRequest newProductRequest){
-        log.info("Controller - addNewProduct start with -> {}",newProductRequest);
+    public ResponseEntity<Object> addNewProduct(@RequestBody InsertProductRequest insertProductRequest){
+        log.info("- addNewProduct start with -> {}", insertProductRequest);
 
-        newProductRequest.setNome("peppe");
-        prodottoService.addNewProduct(newProductRequest);
+        prodottoService.addNewProduct(new ProdottoDTO());
 
-        log.info("Controller - addNewProduct end");
+        log.info("- addNewProduct end");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/product")
-    public ResponseEntity<Object> getProduct(){
-        log.info("Controller - getProduct start with -> {}");
-        log.info("Controller - getProduct end");
+    public ResponseEntity<Object> getProduct(String productId){
+        log.info("- getProduct start with -> {}", productId);
+
+        prodottoService.getProduct(new ProdottoDTO());
+
+        log.info("- getProduct end");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
     @PutMapping("/product")
-    public ResponseEntity<Object> putProduct(){
-        log.info("Controller - putProduct start with -> {}");
-        log.info("Controller - putProduct end");
+    public ResponseEntity<Object> updateProduct(UpdateProductRequest updateProductRequest){
+        log.info("- putProduct start with -> {}", updateProductRequest);
+
+        prodottoService.updateProduct(new ProdottoDTO());
+
+        log.info("- putProduct end");
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/product")
+        public ResponseEntity<Object> deleteProduct(String productId) {
+        log.info("- deleteProduct start with -> {}", productId);
+
+        prodottoService.deleteProduct(new ProdottoDTO());
+
+        log.info("- deleteProduct end");
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
 }
-@DeleteMapping("/product")
-    public ResponseEntity<Object> deleteProduct() {
-    log.info("Controller - deleteProduct start with -> {}");
-    log.info("Controller - deleteProduct end");
-    return new ResponseEntity<>(HttpStatus.CREATED);
-}}
 

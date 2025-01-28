@@ -3,7 +3,7 @@ package com.studio.primoprogetto.model.request;
 import lombok.Data;
 
 @Data
-public class NewProductRequest {
+public class InsertProductRequest {
     private String nome;
     private String unitaMisura;
     private String categoria;

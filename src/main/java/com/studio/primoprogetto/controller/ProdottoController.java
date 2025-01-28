@@ -26,20 +26,22 @@ public class ProdottoController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping  ("/product")
+    @GetMapping("/product")
     public ResponseEntity<Object> getProduct(){
         log.info("Controller - getProduct start with -> {}");
         log.info("Controller - getProduct end");
-        return new ResponseEntity<>(HttpStatus.CREATED);@
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
-    @PutMapping  ("/product")
+    @PutMapping("/product")
     public ResponseEntity<Object> putProduct(){
         log.info("Controller - putProduct start with -> {}");
         log.info("Controller - putProduct end");
         return new ResponseEntity<>(HttpStatus.CREATED);
 }
-@DeleteMapping  ("/product")
-    public ResponseEntity<Object> deleteProduct(){
-        log.info("Controller - deleteProduct start with -> {}");
-        log.info("Controller - deleteProduct end");
-        return new ResponseEntity<>(HttpStatus.CREATED);
+@DeleteMapping("/product")
+    public ResponseEntity<Object> deleteProduct() {
+    log.info("Controller - deleteProduct start with -> {}");
+    log.info("Controller - deleteProduct end");
+    return new ResponseEntity<>(HttpStatus.CREATED);
+}}
+

@@ -5,7 +5,23 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ProdottoRepository {
 
-    public void peppe2(){
+    public void addNewProduct() {
+
+    }
+
+    public void updateProduct() {
+
+    }
+
+    public void getProduct() {
+
+    }
+
+    public void putProduct() {
+
+    }
+
+    public void deleteProduct() {
 
     }
 }

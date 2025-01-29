@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "d5a7a1a5-8658-45ee-afa0-482cd0cedf34",
+		"name": "StudioLeo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23891502"
+	},
+	"item": [
+		{
+			"name": "prodotto",
+			"item": [
+				{
+					"name": "Insert New Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Acqua Nepi\",\r\n    \"categoria\":\"analcolico\",\r\n    \"unitaMisura\": \"cassa\",\r\n    \"prezzoUnitario\" : 0.80,\r\n    \"iva\": \"10\",\r\n    \"descrizione\":\"Cassa da 6 bottiglie da 1lt\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/products",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,11 +1,14 @@
 package com.studio.primoprogetto.service;
 
+import com.studio.primoprogetto.converter.DTOConverter;
 import com.studio.primoprogetto.model.dto.ProductDTO;
 import com.studio.primoprogetto.model.persistence.ProductPO;
 import com.studio.primoprogetto.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Slf4j
 @Service
@@ -14,10 +17,14 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private DTOConverter dtoConverter;
+
     public void addNewProduct(ProductDTO productDTO) {
         log.debug("-- addNewProduct start with -> {}", productDTO);
 
-        productRepository.addNewProduct(new ProductPO());
+        ProductPO productPO = dtoConverter.convertDtoToPo(productDTO);
+        productRepository.addNewProduct(productPO);
 
         log.debug("-- addNewProduct END");
     }
@@ -36,6 +43,15 @@ public class ProductService {
         productRepository.getProduct(new ProductPO());
 
         log.debug("-- getProduct END");
+    }
+
+    public List<ProductPO> getProducts() {
+        log.debug("-- getProduct start with -> {}");
+
+
+
+        log.debug("-- getProduct END");
+        return productRepository.getProducts();
     }
 
     public void deleteProduct(ProductDTO productDTO) {

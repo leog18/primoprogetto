@@ -24,4 +24,12 @@ public class RequestConverter {
 
         return result;
     }
+
+    // Stesso per convertInsertRequestToDto
+    // Solo che dobbiamo creare ProductDTO con id = a requestId
+    public ProductDTO convertGetRequestToDto(String productId){
+        ProductDTO result = new ProductDTO();
+
+        return result;
+    }
 }

@@ -1,6 +1,9 @@
-package com.studio.primoprogetto.model.persistence;
+package com.studio.primoprogetto.model.dto;
 
-public class ProdottoPO {
+import lombok.Data;
+
+@Data
+public class ProductDTO {
     private String id;
     private String nome;
     private String categoria;

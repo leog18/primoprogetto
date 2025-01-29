@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: "product-service"
+
+server:
+  port: 8080
+
+service:
+  id: "test000prima0000app0000"
